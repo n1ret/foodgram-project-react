@@ -1,9 +1,6 @@
-# praktikum_new_diplom
+[ip сервера с развёрнутым проектом](http://google.com)
 
-[ip сервера с развёрнутым проектом](http://84.201.143.201)
-[документация api](http://84.201.143.201/api/docs/)
-
-Админ меню: login: admin, password: 1234
+[документация api](http://google.com/api/docs/)
 
 # Foodgram
 
@@ -24,7 +21,7 @@
 Клонирование и переход в репозиторий:
 
 ```
-git clone https://github.com/Belobokovm/foodgram-project-react.git
+git clone https://github.com/n1ret/foodgram-project-react.git
 cd foodgram-project-react
 ```
 
