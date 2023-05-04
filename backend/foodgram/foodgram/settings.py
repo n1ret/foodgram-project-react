@@ -27,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x&+h@b&#uc5e28broy6#mu4@wo+95_4@r)fgh__4b$cjya5%rm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 IP_ADDR = 'localhost'
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '*']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://26.194.45.196']
+CSRF_TRUSTED_ORIGINS = ['http://localhost']
 
 
 # Application definition
