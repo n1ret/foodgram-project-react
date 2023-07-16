@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Ingredient, Tag, Recipe, UsableIngredient
 from users.serializer import UserSerializer
-from django.conf import settings
 from drf_base64.fields import Base64ImageField
 
 
@@ -28,22 +27,6 @@ class UsableIngredientSeializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'measurement_unit', 'amount')
 
 
-class CustomBase64ImageField(Base64ImageField):
-    def to_representation(self, value):
-        if not value:
-            return None
-
-        try:
-            url = value.url
-        except AttributeError:
-            return None
-        request = self.context.get('request', None)
-        if request is not None:
-            return request.build_absolute_uri(url).replace(
-                'backend:8000', settings.IP_ADDR)
-        return url
-
-
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = UsableIngredientSeializer(many=True, read_only=True)
     tags = TagSerializer(many=True, read_only=True)
@@ -52,7 +35,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     is_in_shopping_cart = serializers.SerializerMethodField(
         'recipe_is_in_shopping_cart'
     )
-    image = CustomBase64ImageField()
+    image = Base64ImageField()
 
     class Meta:
         model = Recipe
